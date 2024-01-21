@@ -1,0 +1,11 @@
+{
+  "qrcodes": [
+    {
+      "androidMobileUrl": "www.youtube.com",
+      "iosMobileUrl": "www.facebook.com",
+      "androidTabletUrl": "www.linkedin.com",
+      "iosTabletUrl": "www.github.com",
+      "id": 1
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+<div class="background">
+  <div class="container">
+    <div class="form-container">
+      <form>
+        <div>
+          <span>Android smartphone version link:</span>
+          <input
+            [disabled]="newQrcode"
+            autocomplete="off"
+            [(ngModel)]="qrcode.androidMobileUrl"
+            type="text"
+            placeholder="Enter your Smartphone version link"
+            class="androidMobileUrl"
+            name="androidMobileUrl"
+            minlength="10"
+          />
+        </div>
+        <div>
+          <span>iPhone version link:</span>
+          <input
+            [disabled]="newQrcode"
+            autocomplete="off"
+            [(ngModel)]="qrcode.iosMobileUrl"
+            type="text"
+            placeholder="Enter your iPhone version link"
+            class="iosMobileUrl"
+            name="iosMobileUrl"
+            minlength="10"
+          />
+        </div>
+        <div>
+          <span>Android tablet version link:</span>
+          <input
+            [disabled]="newQrcode"
+            autocomplete="off"
+            [(ngModel)]="qrcode.androidTabletUrl"
+            type="text"
+            placeholder="Enter your Android tablet version link"
+            class="androidTabletUrl"
+            name="androidTabletUrl"
+            minlength="10"
+          />
+        </div>
+        <div>
+          <span>iPad version link:</span>
+          <input
+            [disabled]="newQrcode"
+            autocomplete="off"
+            [(ngModel)]="qrcode.iosTabletUrl"
+            type="text"
+            placeholder="Enter your iPad version link"
+            class="iosTabletUrl"
+            name="iosTabletUrl"
+            minlength="10"
+          />
+        </div>
+      </form>
+    </div>
+    <div class="slider-container">
+      <span>Border size:</span>
+      <input
+        [disabled]="newQrcode"
+        type="range"
+        name="slider"
+        class="slider"
+        min="0"
+        max="5"
+        [(ngModel)]="borderSlider"
+      />
+    </div>
+
+    <button *ngIf="!newQrcode" class="button" (click)="createQrCode()">
+      Generate QR Code
+    </button>
+    <button *ngIf="newQrcode" class="button" (click)="newQrcodeHandle()">
+      New QR Code
+    </button>
+
+    <div class="qrcode">
+      <qr-code
+        #qrCode
+        [value]="sourceUrl"
+        size="180"
+        errorCorrectionLevel="M"
+        [margin]="borderSlider"
+      >
+        ></qr-code
+      >
+    </div>
+
+    <div class="actions">
+      <button [disabled]="!newQrcode" class="download" (click)="(qrCode)">
+        Download PNG
+      </button>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
